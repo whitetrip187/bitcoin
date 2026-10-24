@@ -26,7 +26,7 @@ get_directory_property(precious_variables CACHE_VARIABLES)
 #=============================
 # Project / Package metadata
 #=============================
-set(CLIENT_NAME "Bitcoin Core")
+set(CLIENT_NAME "Summitcoin Core")
 set(CLIENT_VERSION_MAJOR 31)
 set(CLIENT_VERSION_MINOR 99)
 set(CLIENT_VERSION_BUILD 0)
@@ -50,10 +50,10 @@ set(CMAKE_TRY_COMPILE_PLATFORM_VARIABLES
   CMAKE_CXX_LINK_EXECUTABLE
 )
 
-project(BitcoinCore
+project(SummitcoinCore
   VERSION ${CLIENT_VERSION_MAJOR}.${CLIENT_VERSION_MINOR}.${CLIENT_VERSION_BUILD}
-  DESCRIPTION "Bitcoin client software"
-  HOMEPAGE_URL "https://bitcoincore.org/"
+  DESCRIPTION "Summitcoin (SMT) client software, forked from Bitcoin Core"
+  HOMEPAGE_URL "https://github.com/whitetrip187/bitcoin"
   LANGUAGES NONE
 )
 
@@ -63,8 +63,9 @@ if(CLIENT_VERSION_RC GREATER 0)
 endif()
 
 set(COPYRIGHT_HOLDERS "The %s developers")
-set(COPYRIGHT_HOLDERS_FINAL "The ${CLIENT_NAME} developers")
-set(CLIENT_BUGREPORT "https://github.com/bitcoin/bitcoin/issues")
+# Keep the upstream copyright holders (MIT license notice).
+set(COPYRIGHT_HOLDERS_FINAL "The Bitcoin Core developers")
+set(CLIENT_BUGREPORT "https://github.com/whitetrip187/bitcoin/issues")
 
 #=============================
 # Language setup
@@ -357,7 +358,7 @@ if(WIN32)
 
   # Workaround producing large object files, which cannot be handled by the assembler.
   # More likely to happen with no, or lower levels of optimisation.
-  # See discussion in https://github.com/bitcoin/bitcoin/issues/28109.
+  # See discussion in https://github.com/whitetrip187/bitcoin/issues/28109.
   if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     try_append_cxx_flags("/bigobj" TARGET core_interface_debug SKIP_LINK)
   else()
