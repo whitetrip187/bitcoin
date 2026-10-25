@@ -359,7 +359,7 @@ public:
         vSeeds.clear();
 
         if (!options.challenge) {
-            bin = "512103ad5e0edad18cb1f0fc0d28a3d4f1f3e445640337489abb10404f2d1e086be430210359ef5021964fe22d6f8e05b2463c9540ce96883fe3b278760f048f5189f2e6c452ae"_hex_v_u8;
+            bin = "5121039f9bb77d6060c9142655557c5c3396757007bf43772df4f91406d2a921a9c7a921037edd3e277bb236cb1f6108a6f0fe427a0482ed944473bd25f522fa55af6aced852ae"_hex_v_u8;
         vFixedSeeds.clear(); // TODO(summitcoin): add fixed seeds once nodes exist
 
             consensus.nMinimumChainWork = uint256{};

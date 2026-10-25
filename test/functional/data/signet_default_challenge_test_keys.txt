@@ -1,0 +1,12 @@
+# TEST-ONLY KEYS. DO NOT USE FOR ANYTHING OF VALUE.
+#
+# Private keys for Summitcoin's default signet challenge (a 1-of-2 bare multisig), used to
+# sign the pregenerated blocks in test/functional/feature_signet.py with contrib/signet/miner.
+# These keys are public by design: anybody can mine on the default Summitcoin signet using them,
+# exactly like the test keys shipped by Bitcoin Core's own functional tests.
+#
+# challenge: 5121039f9bb77d6060c9142655557c5c3396757007bf43772df4f91406d2a921a9c7a921037edd3e277bb236cb1f6108a6f0fe427a0482ed944473bd25f522fa55af6aced852ae
+#
+# privkey_hex pubkey_hex
+4adc34ab5ff8d03329cff8c3eef7cb5a8d58ce49d0029659063304d19def88bc 039f9bb77d6060c9142655557c5c3396757007bf43772df4f91406d2a921a9c7a9
+f38a205c68490ae0215f910c80d81e88f86648ec5d7eab22ae04d71945fe3aa5 037edd3e277bb236cb1f6108a6f0fe427a0482ed944473bd25f522fa55af6aced8
