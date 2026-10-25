@@ -44,18 +44,18 @@ class ScantxoutsetTest(BitcoinTestFramework):
         self.sendtodestination(spk_BECH32, 0.004)
 
         #send to child keys of tprv8ZgxMBicQKsPd7Uf69XL1XwhmjHopUGep8GuEiJDZmbQz6o58LninorQAfcKZWARbtRtfnLcJ5MQ2AtHcQJCCRUcMRvmDUjyEmNUWwx8UbK
-        self.sendtodestination("mkHV1C6JLheLoUSSZYk7x3FH5tnx9bu7yc", 0.008)  # (m/0'/0'/0')
-        self.sendtodestination("mipUSRmJAj2KrjSvsPQtnP8ynUon7FhpCR", 0.016)  # (m/0'/0'/1')
-        self.sendtodestination("n37dAGe6Mq1HGM9t4b6rFEEsDGq7Fcgfqg", 0.032)  # (m/0'/0'/1500')
-        self.sendtodestination("mqS9Rpg8nNLAzxFExsgFLCnzHBsoQ3PRM6", 0.064)  # (m/0'/0'/0)
-        self.sendtodestination("mnTg5gVWr3rbhHaKjJv7EEEc76ZqHgSj4S", 0.128)  # (m/0'/0'/1)
-        self.sendtodestination("mketCd6B9U9Uee1iCsppDJJBHfvi6U6ukC", 0.256)  # (m/0'/0'/1500)
-        self.sendtodestination("mj8zFzrbBcdaWXowCQ1oPZ4qioBVzLzAp7", 0.512)  # (m/1/1/0')
-        self.sendtodestination("mfnKpKQEftniaoE1iXuMMePQU3PUpcNisA", 1.024)  # (m/1/1/1')
-        self.sendtodestination("mou6cB1kaP1nNJM1sryW6YRwnd4shTbXYQ", 2.048)  # (m/1/1/1500')
-        self.sendtodestination("mtfUoUax9L4tzXARpw1oTGxWyoogp52KhJ", 4.096)  # (m/1/1/0)
-        self.sendtodestination("mxp7w7j8S1Aq6L8StS2PqVvtt4HGxXEvdy", 8.192)  # (m/1/1/1)
-        self.sendtodestination("mpQ8rokAhp1TAtJQR6F6TaUmjAWkAWYYBq", 16.384)  # (m/1/1/1500)
+        self.sendtodestination("TEjjiCP3gQL3BY2TSFRTeGj68gwZUXGQEF", 0.008)  # (m/0'/0'/0')
+        self.sendtodestination("TDGj9S43WRi2Eo2wk66EUccnqGxPSaUP4s", 0.016)  # (m/0'/0'/1')
+        self.sendtodestination("TXZssGvqhXgyeQjtwHnBwTigG4yiYP1S7V", 0.032)  # (m/0'/0'/1500')
+        self.sendtodestination("TKtQ8pxt851sP1qFqaMb2SGoKz2QiM5tG8", 0.064)  # (m/0'/0'/0)
+        self.sendtodestination("TGuvngnGBkYJ5MALc1bSvTiR9tiSUuNoiA", 0.128)  # (m/0'/0'/1)
+        self.sendtodestination("TF78udNvVAqB2hbj5aW9uXmzLU5KTZPhzG", 0.256)  # (m/0'/0'/1500)
+        self.sendtodestination("TDbEy19LXKKGtbPx56h95nYembL7GUCo8Z", 0.512)  # (m/1/1/0')
+        self.sendtodestination("TAEaXKgz1bUQxrp2bEah3ssDWqY66V97Kz", 1.024)  # (m/1/1/1')
+        self.sendtodestination("TJMMKBJVv5hUkMw2kZeqnmukqRDUzz3QcP", 2.048)  # (m/1/1/1500')
+        self.sendtodestination("TP7jWUshV2kbNakShdh99WSL2bxJ9NTfRB", 4.096)  # (m/1/1/0)
+        self.sendtodestination("TTGNe81smhrXUPiTm8hjXjQhvrRtKZgKQq", 8.192)  # (m/1/1/1)
+        self.sendtodestination("TJrPZp2v3Wh9YwtRHnvS9oxamxfMSLaGsw", 16.384)  # (m/1/1/1500)
 
         self.generate(self.nodes[0], 1)
 
@@ -123,7 +123,7 @@ class ScantxoutsetTest(BitcoinTestFramework):
 
         # Check that the blockhash and confirmations fields are correct
         self.generate(self.nodes[0], 2)
-        unspent = self.nodes[0].scantxoutset("start", ["addr(mpQ8rokAhp1TAtJQR6F6TaUmjAWkAWYYBq)"])["unspents"][0]
+        unspent = self.nodes[0].scantxoutset("start", ["addr(TJrPZp2v3Wh9YwtRHnvS9oxamxfMSLaGsw)"])["unspents"][0]
         blockhash = self.nodes[0].getblockhash(info["height"])
         assert_equal(unspent["height"], info["height"])
         assert_equal(unspent["blockhash"], blockhash)

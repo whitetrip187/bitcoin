@@ -500,9 +500,10 @@ public:
 
         ApplyDeploymentOptions(opts.dep_opts);
 
-        genesis = CreateGenesisBlock(1792800000, 8, 0x207fffff, 1, 50 * COIN);
+        // Regtest keeps upstream's 2011 genesis time so test fixtures that mock time from genesis keep working.
+        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256{"0991012e0c9d994e52cc6123d1152d1b747fa1e2fb5e93d2efdf135d01fa5827"});
+        assert(consensus.hashGenesisBlock == uint256{"1111898dcc1613f6641775fe3afa103f7ca39dd520b0a2b4052327df9c399a9a"});
         assert(genesis.hashMerkleRoot == uint256{"08442b1a456e95b0f76227ba5ef594bdba473aa32501dc52737e42253b837684"});
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
@@ -512,7 +513,30 @@ public:
         fDefaultConsistencyChecks = true;
         m_is_mockable_chain = true;
 
-        m_assumeutxo_data = {}; // no snapshots for the new chain yet
+        // Regtest snapshots used by unit, fuzz and functional tests (regenerated for the Summitcoin regtest genesis).
+        m_assumeutxo_data = {
+            {   // For use by unit tests
+                .height = 110,
+                .hash_serialized = AssumeutxoHash{uint256{"86e9a1205b418b16dde3a18a78c730e30137e28466bda5dbf6b33ab8fc05447c"}},
+                .m_chain_tx_count = 111,
+                .blockhash = uint256{"43bb7c90f4de00970037e6e74bff6751f75a05930133feceabeb7e9d2581f356"},
+            },
+            {
+                // For use by fuzz target src/test/fuzz/utxo_snapshot.cpp
+                .height = 200,
+                .hash_serialized = AssumeutxoHash{uint256{"17dcc016d188d16068907cdeb38b75691a118d43053b8cd6a25969419381d13a"}},
+                .m_chain_tx_count = 201,
+                .blockhash = uint256{"385901ccbd69dff6bbd00065d01fb8a9e464dede7cfe0372443884f9b1dcf6b9"},
+            },
+            {
+                // For use by test/functional/feature_assumeutxo.py and test/functional/tool_bitcoin_chainstate.py
+                .height = 299,
+                .hash_serialized = AssumeutxoHash{uint256{"106b2c56233e378a824cf0d5ff2be42ed32c72f1605c9be288d00942908a40ac"}},
+                .m_chain_tx_count = 334,
+                .blockhash = uint256{"0c552ced4721c249a389eb9b08cb8da261cd46f0e7b5f9d064d48f3113406853"},
+            },
+        };
+
 
         chainTxData = ChainTxData{
             .nTime = 0,
