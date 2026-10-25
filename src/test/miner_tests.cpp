@@ -97,25 +97,25 @@ static CFeeRate blockMinFeeRate = CFeeRate(DEFAULT_BLOCK_MIN_TX_FEE);
 constexpr static struct {
     unsigned int extranonce;
     unsigned int nonce;
-} BLOCKINFO[]{{0, 3552706918},   {500, 37506755},   {1000, 948987788}, {400, 524762339},  {800, 258510074},  {300, 102309278},
-              {1300, 54365202},  {600, 1107740426}, {1000, 203094491}, {900, 391178848},  {800, 381177271},  {600, 87188412},
-              {0, 66522866},     {800, 874942736},  {1000, 89200838},  {400, 312638088},  {400, 66263693},   {500, 924648304},
-              {400, 369913599},  {500, 47630099},   {500, 115045364},  {100, 277026602},  {1100, 809621409}, {700, 155345322},
-              {800, 943579953},  {400, 28200730},   {900, 77200495},   {0, 105935488},    {400, 698721821},  {500, 111098863},
-              {1300, 445389594}, {500, 621849894},  {1400, 56010046},  {1100, 370669776}, {1200, 380301940}, {1200, 110654905},
-              {400, 213771024},  {1500, 120014726}, {1200, 835019014}, {1500, 624817237}, {900, 1404297},    {400, 189414558},
-              {400, 293178348},  {1100, 15393789},  {600, 396764180},  {800, 1387046371}, {800, 199368303},  {700, 111496662},
-              {100, 129759616},  {200, 536577982},  {500, 125881300},  {500, 101053391},  {1200, 471590548}, {900, 86957729},
-              {1200, 179604104}, {600, 68658642},   {1000, 203295701}, {500, 139615361},  {900, 233693412},  {300, 153225163},
-              {0, 27616254},     {1200, 9856191},   {100, 220392722},  {200, 66257599},   {1100, 145489641}, {1300, 37859442},
-              {400, 5816075},    {1200, 215752117}, {1400, 32361482},  {1400, 6529223},   {500, 143332977},  {800, 878392},
-              {700, 159290408},  {400, 123197595},  {700, 43988693},   {300, 304224916},  {700, 214771621},  {1100, 274148273},
-              {400, 285632418},  {1100, 923451065}, {600, 12818092},   {1200, 736282054}, {1000, 246683167}, {600, 92950402},
-              {1400, 29223405},  {1000, 841327192}, {700, 174301283},  {1400, 214009854}, {1000, 6989517},   {1200, 278226956},
-              {700, 540219613},  {400, 93663104},   {1100, 152345635}, {1500, 464194499}, {1300, 333850111}, {600, 258311263},
-              {600, 90173162},   {1000, 33590797},  {1500, 332866027}, {100, 204704427},  {1000, 463153545}, {800, 303244785},
-              {600, 88096214},   {0, 137477892},    {1200, 195514506}, {300, 704114595},  {900, 292087369},  {1400, 758684870},
-              {1300, 163493028}, {1200, 53151293}};
+} BLOCKINFO[]{{1, 3131500778}, {1, 3381282768}, {1, 2276564800}, {1, 579745846}, {0, 1916324880}, {1, 1772867742},
+              {1, 2567434245}, {1, 1929231157}, {2, 4244301565}, {0, 2986044880}, {0, 805000542}, {0, 3911352778},
+              {0, 1405668518}, {0, 2765069899}, {0, 2570466228}, {0, 56499318}, {1, 1838471818}, {0, 3212933848},
+              {1, 2930977119}, {0, 4288364592}, {0, 3347200640}, {0, 680973799}, {2, 2459979318}, {2, 1358907132},
+              {1, 1762213054}, {0, 921929045}, {0, 2171402267}, {3, 3896386227}, {3, 1285810923}, {3, 652298363},
+              {1, 746193271}, {2, 590099234}, {2, 675111030}, {0, 1630067088}, {1, 60903318}, {2, 207323955},
+              {0, 1243772014}, {1, 322662254}, {0, 3279236508}, {0, 1750164462}, {2, 2349711607}, {1, 2002785269},
+              {0, 1779267157}, {0, 2268602202}, {0, 2526390201}, {0, 1734743680}, {0, 255622909}, {0, 3830962521},
+              {2, 1166724578}, {1, 3188241385}, {2, 3073169014}, {0, 3058390811}, {2, 2083645642}, {1, 3985263030},
+              {0, 395192520}, {0, 3680110322}, {1, 2686273344}, {0, 1458396131}, {1, 1740456342}, {0, 1938577547},
+              {0, 733496324}, {0, 2290685322}, {3, 4075225260}, {0, 2091514975}, {0, 1849637143}, {1, 1660025925},
+              {0, 2986816949}, {1, 4233073211}, {0, 3573125816}, {2, 782960062}, {0, 2511033997}, {3, 3372710728},
+              {0, 4014984516}, {1, 4212987486}, {1, 2039472981}, {0, 3542211710}, {0, 1999302118}, {1, 13124151},
+              {0, 4094199181}, {0, 3806263905}, {1, 651964206}, {0, 2693934746}, {0, 4051421335}, {1, 580707841},
+              {1, 2976222621}, {1, 1911456740}, {3, 931123178}, {0, 100972961}, {1, 169544164}, {0, 2870222332},
+              {1, 3246965365}, {0, 3934808201}, {0, 1118128371}, {0, 180187272}, {0, 2895900642}, {0, 1990683041},
+              {0, 1736058099}, {0, 1562456581}, {0, 3609588505}, {0, 284326528}, {0, 1354630940}, {1, 37225109},
+              {1, 3960869185}, {0, 1718733416}, {0, 2152666360}, {0, 4209345172}, {0, 3843227135}, {1, 3953811963},
+              {0, 4136065944}, {1, 158609753}};
 
 static std::unique_ptr<CBlockIndex> CreateBlockIndex(int nHeight, CBlockIndex* active_chain_tip) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
 {
@@ -655,15 +655,12 @@ void MinerTestingSetup::TestBasicMining(const CScript& scriptPubKey, const std::
     tx.vin[0].nSequence = CTxIn::SEQUENCE_LOCKTIME_TYPE_FLAG | 1;
     BOOST_CHECK(!TestSequenceLocks(CTransaction{tx}, tx_mempool)); // Sequence locks fail
 
-    auto block_template = mining->createNewBlock(options, /*cooldown=*/false);
-    BOOST_REQUIRE(block_template);
-
-    // None of the of the absolute height/time locked tx should have made
-    // it into the template because we still check IsFinalTx in CreateNewBlock,
-    // but relative locked txs will if inconsistently added to mempool.
-    // For now these will still generate a valid template until BIP68 soft fork
-    CBlock block{block_template->getBlock()};
-    BOOST_CHECK_EQUAL(block.vtx.size(), 3U);
+    // None of the of the absolute height/time locked tx make it into the template because
+    // CreateNewBlock checks IsFinalTx, but the relative locked txs (inconsistently added to the
+    // mempool) do. Summitcoin enforces BIP68 (CSV) from height 1, so such a template fails
+    // TestBlockValidity instead of producing a valid block.
+    BOOST_CHECK_EXCEPTION(mining->createNewBlock(options, /*cooldown=*/false), std::runtime_error,
+                          HasReason("bad-txns-nonfinal"));
     // However if we advance height by 1 and time by SEQUENCE_LOCK_TIME, all of them should be mined
     for (int i = 0; i < CBlockIndex::nMedianTimeSpan; ++i) {
         CBlockIndex* ancestor{Assert(m_node.chainman->ActiveChain().Tip()->GetAncestor(m_node.chainman->ActiveChain().Tip()->nHeight - i))};
@@ -672,9 +669,9 @@ void MinerTestingSetup::TestBasicMining(const CScript& scriptPubKey, const std::
     m_node.chainman->ActiveChain().Tip()->nHeight++;
     SetMockTime(m_node.chainman->ActiveChain().Tip()->GetMedianTimePast() + 1);
 
-    block_template = mining->createNewBlock(options, /*cooldown=*/false);
+    auto block_template = mining->createNewBlock(options, /*cooldown=*/false);
     BOOST_REQUIRE(block_template);
-    block = block_template->getBlock();
+    CBlock block{block_template->getBlock()};
     BOOST_CHECK_EQUAL(block.vtx.size(), 5U);
 }
 
@@ -766,10 +763,8 @@ void MinerTestingSetup::TestPrioritisedMining(const CScript& scriptPubKey, const
 }
 
 // NOTE: These tests rely on CreateNewBlock doing its own self-validation!
-// TODO(summitcoin): BLOCKINFO holds 110 nonces pre-mined against Bitcoin's mainnet genesis at
-// mainnet difficulty. They must be re-mined for the Summitcoin genesis (hours of CPU), so this
-// test is skipped until that is done.
-static constexpr bool SUMMITCOIN_MINER_NONCES_REGENERATED{false};
+// BLOCKINFO nonces re-mined for the Summitcoin genesis.
+static constexpr bool SUMMITCOIN_MINER_NONCES_REGENERATED{true};
 BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
 {
     if (!SUMMITCOIN_MINER_NONCES_REGENERATED) {
@@ -857,6 +852,9 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
             txCoinbase.version = 1;
             txCoinbase.vin[0].scriptSig = CScript{} << (current_height + 1) << bi.extranonce;
             txCoinbase.vout.resize(1); // Ignore the (optional) segwit commitment added by CreateNewBlock (as the hardcoded nonces don't account for this)
+            // Summitcoin activates SegWit from height 1, so the template coinbase carries a witness
+            // reserved value; drop it together with the commitment (no witness txs in these blocks).
+            txCoinbase.vin[0].scriptWitness.SetNull();
             txCoinbase.vout[0].scriptPubKey = CScript();
             block.vtx[0] = MakeTransactionRef(txCoinbase);
             if (txFirst.size() == 0)
