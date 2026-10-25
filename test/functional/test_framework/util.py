@@ -491,7 +491,10 @@ class PortSeed:
 
 def p2p_port(n):
     assert n <= MAX_NODES
-    return PORT_MIN + n + (MAX_NODES * PortSeed.n) % (PORT_RANGE - 1 - MAX_NODES)
+    # Each test owns MAX_NODES + 1 ports (n = 0..MAX_NODES inclusive, e.g. interface_zmq uses
+    # p2p_port(num_nodes + k) for its ZMQ endpoints), so stride by MAX_NODES + 1 to avoid the
+    # last port of one test overlapping the first port of the next parallel test.
+    return PORT_MIN + n + ((MAX_NODES + 1) * PortSeed.n) % (PORT_RANGE - 1 - MAX_NODES)
 
 
 def rpc_port(n):
