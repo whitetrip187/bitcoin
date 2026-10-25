@@ -168,7 +168,7 @@ class AssumeutxoTest(BitcoinTestFramework):
 
     def test_headers_not_synced(self, valid_snapshot_path):
         for node in self.nodes[1:]:
-            msg = "Unable to load UTXO snapshot: The base block header (0c552ced4721c249a389eb9b08cb8da261cd46f0e7b5f9d064d48f3113406853) must appear in the headers chain. Make sure all headers are syncing, and call loadtxoutset again."
+            msg = "Unable to load UTXO snapshot: The base block header (6f7cff40772f6e0db8c8b9c3b1e14699a951250023fb5b5aeae3e587ccf066c1) must appear in the headers chain. Make sure all headers are syncing, and call loadtxoutset again."
             assert_raises_rpc_error(-32603, msg, node.loadtxoutset, valid_snapshot_path)
 
     def test_invalid_chainstate_scenarios(self):
@@ -228,7 +228,7 @@ class AssumeutxoTest(BitcoinTestFramework):
             block_hash = node.getblockhash(height)
             node.invalidateblock(block_hash)
             assert_equal(node.getblockcount(), height - 1)
-            msg = "Unable to load UTXO snapshot: The base block header (0c552ced4721c249a389eb9b08cb8da261cd46f0e7b5f9d064d48f3113406853) is part of an invalid chain."
+            msg = "Unable to load UTXO snapshot: The base block header (6f7cff40772f6e0db8c8b9c3b1e14699a951250023fb5b5aeae3e587ccf066c1) is part of an invalid chain."
             assert_raises_rpc_error(-32603, msg, node.loadtxoutset, dump_output_path)
             node.reconsiderblock(block_hash)
 

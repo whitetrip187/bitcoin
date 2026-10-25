@@ -20,7 +20,7 @@ from test_framework.wallet import MiniWallet
 START_HEIGHT = 199
 # Hardcoded in regtest chainparams
 SNAPSHOT_BASE_BLOCK_HEIGHT = 299
-SNAPSHOT_BASE_BLOCK_HASH = "0c552ced4721c249a389eb9b08cb8da261cd46f0e7b5f9d064d48f3113406853"
+SNAPSHOT_BASE_BLOCK_HASH = "6f7cff40772f6e0db8c8b9c3b1e14699a951250023fb5b5aeae3e587ccf066c1"
 
 
 class BitcoinChainstateTest(BitcoinTestFramework):

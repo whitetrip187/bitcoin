@@ -533,7 +533,7 @@ public:
                 .height = 299,
                 .hash_serialized = AssumeutxoHash{uint256{"106b2c56233e378a824cf0d5ff2be42ed32c72f1605c9be288d00942908a40ac"}},
                 .m_chain_tx_count = 334,
-                .blockhash = uint256{"0c552ced4721c249a389eb9b08cb8da261cd46f0e7b5f9d064d48f3113406853"},
+                .blockhash = uint256{"6f7cff40772f6e0db8c8b9c3b1e14699a951250023fb5b5aeae3e587ccf066c1"},
             },
         };
 

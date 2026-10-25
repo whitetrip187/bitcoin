@@ -89,17 +89,11 @@ class SignetBasicTest(BitcoinTestFramework):
 
         self.generate(self.nodes[0], 1, sync_fun=self.no_op)
 
-        self.log.info("pregenerated signet blocks check")
-
-        height = 0
-        for block in signet_blocks:
-            assert_equal(self.nodes[2].submitblock(block), None)
-            height += 1
-            assert_equal(self.nodes[2].getblockcount(), height)
-
-        self.log.info("pregenerated signet blocks check (incompatible solution)")
-
-        assert_equal(self.nodes[4].submitblock(signet_blocks[0]), 'bad-signet-blksig')
+        # TODO(summitcoin): the pregenerated signet_blocks below were mined on top of Bitcoin's
+        # signet genesis and signed with the default signet challenge keys, which we do not hold.
+        # They cannot be rebased onto the Summitcoin signet genesis without re-signing, so these
+        # checks are skipped until a Summitcoin signet challenge and fixture blocks exist.
+        self.log.info("Skipping pregenerated signet blocks checks (fixtures not regenerated for Summitcoin)")
 
         self.log.info("test that signet logs the network magic on node start")
         with self.nodes[0].assert_debug_log(["Signet derived magic (message start)"]):
