@@ -10,7 +10,7 @@ import tempfile
 import argparse
 
 BINARIES = [
-'bin/bitcoin',
+'bin/summitcoin',
 'bin/summitcoind',
 'bin/summitcoin-cli',
 'bin/summitcoin-tx',
