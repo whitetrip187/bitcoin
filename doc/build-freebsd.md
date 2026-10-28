@@ -2,7 +2,7 @@
 
 **Updated for FreeBSD [15.0](https://www.freebsd.org/releases/15.0R/announce/)**
 
-This guide describes how to build bitcoind, command-line utilities, and GUI on FreeBSD.
+This guide describes how to build summitcoind, command-line utilities, and GUI on FreeBSD.
 
 ## Preparation
 

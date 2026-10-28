@@ -79,7 +79,7 @@ CBlock CreateTestBlock(
  * Creates key pairs and corresponding outputs for the benchmark transactions.
  * - For Schnorr signatures: Creates simple key path spendable outputs
  * - For Ecdsa signatures: Creates P2WPKH (native SegWit v0) outputs
- * - All outputs have value of 1 BTC
+ * - All outputs have value of 1 SMT
  */
 std::pair<std::vector<CKey>, std::vector<CTxOut>> CreateKeysAndOutputs(const CKey& coinbaseKey, size_t num_schnorr, size_t num_ecdsa)
 {

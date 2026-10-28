@@ -2,18 +2,18 @@
 
 | Name                     | Description |
 |--------------------------|-------------|
-| *libbitcoin_cli*         | RPC client functionality used by *bitcoin-cli* executable |
+| *libbitcoin_cli*         | RPC client functionality used by *summitcoin-cli* executable |
 | *libbitcoin_common*      | Home for common functionality shared by different executables and libraries. Similar to *libbitcoin_util*, but higher-level (see [Dependencies](#dependencies)). |
 | *libbitcoin_consensus*   | Consensus functionality used by *libbitcoin_node* and *libbitcoin_wallet*. |
 | *libbitcoin_crypto*      | Hardware-optimized functions for data encryption, hashing, message authentication, and key derivation. |
 | *libbitcoin_kernel*      | Consensus engine and support library used for validation by *libbitcoin_node*. |
-| *libbitcoinqt*           | GUI functionality used by *bitcoin-qt* and *bitcoin-gui* executables. |
-| *libbitcoin_ipc*         | IPC functionality used by *bitcoin-node* and *bitcoin-gui* executables to communicate when [`-DENABLE_IPC=ON`](multiprocess.md) is used. |
-| *libbitcoin_node*        | P2P and RPC server functionality used by *bitcoind* and *bitcoin-qt* executables. |
+| *libbitcoinqt*           | GUI functionality used by *summitcoin-qt* and *summitcoin-gui* executables. |
+| *libbitcoin_ipc*         | IPC functionality used by *summitcoin-node* and *summitcoin-gui* executables to communicate when [`-DENABLE_IPC=ON`](multiprocess.md) is used. |
+| *libbitcoin_node*        | P2P and RPC server functionality used by *summitcoind* and *summitcoin-qt* executables. |
 | *libbitcoin_util*        | Home for common functionality shared by different executables and libraries. Similar to *libbitcoin_common*, but lower-level (see [Dependencies](#dependencies)). |
-| *libbitcoin_wallet*      | Wallet functionality used by *bitcoind* and *bitcoin-wallet* executables. |
-| *libbitcoin_wallet_tool* | Lower-level wallet functionality used by *bitcoin-wallet* executable. |
-| *libbitcoin_zmq*         | [ZeroMQ](../zmq.md) functionality used by *bitcoind* and *bitcoin-qt* executables. |
+| *libbitcoin_wallet*      | Wallet functionality used by *summitcoind* and *summitcoin-wallet* executables. |
+| *libbitcoin_wallet_tool* | Lower-level wallet functionality used by *summitcoin-wallet* executable. |
+| *libbitcoin_zmq*         | [ZeroMQ](../zmq.md) functionality used by *summitcoind* and *summitcoin-qt* executables. |
 
 ## Conventions
 
@@ -39,17 +39,17 @@
 
 graph TD;
 
-bitcoin-cli[bitcoin-cli]-->libbitcoin_cli;
+summitcoin-cli[summitcoin-cli]-->libbitcoin_cli;
 
-bitcoind[bitcoind]-->libbitcoin_node;
-bitcoind[bitcoind]-->libbitcoin_wallet;
+summitcoind[summitcoind]-->libbitcoin_node;
+summitcoind[summitcoind]-->libbitcoin_wallet;
 
-bitcoin-qt[bitcoin-qt]-->libbitcoin_node;
-bitcoin-qt[bitcoin-qt]-->libbitcoinqt;
-bitcoin-qt[bitcoin-qt]-->libbitcoin_wallet;
+summitcoin-qt[summitcoin-qt]-->libbitcoin_node;
+summitcoin-qt[summitcoin-qt]-->libbitcoinqt;
+summitcoin-qt[summitcoin-qt]-->libbitcoin_wallet;
 
-bitcoin-wallet[bitcoin-wallet]-->libbitcoin_wallet;
-bitcoin-wallet[bitcoin-wallet]-->libbitcoin_wallet_tool;
+summitcoin-wallet[summitcoin-wallet]-->libbitcoin_wallet;
+summitcoin-wallet[summitcoin-wallet]-->libbitcoin_wallet_tool;
 
 libbitcoin_cli-->libbitcoin_util;
 libbitcoin_cli-->libbitcoin_common;
@@ -83,7 +83,7 @@ libbitcoin_wallet_tool-->libbitcoin_wallet;
 libbitcoin_wallet_tool-->libbitcoin_util;
 
 classDef bold stroke-width:2px, font-weight:bold, font-size: smaller;
-class bitcoin-qt,bitcoind,bitcoin-cli,bitcoin-wallet bold
+class summitcoin-qt,summitcoind,summitcoin-cli,summitcoin-wallet bold
 ```
 </td></tr><tr><td>
 

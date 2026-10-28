@@ -19,7 +19,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
 installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on macOS)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+or `summitcoind`/`summitcoin-qt` (on Linux).
 
 Upgrading directly from a version of Bitcoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
@@ -150,9 +150,9 @@ function signature instead of just the function name. (#32604)
 
 - #32333 doc: Add missing top-level description to pruneblockchain RPC
 - #32353 doc: Fix fuzz test_runner.py path
-- #32389 doc: Fix test_bitcoin path
+- #32389 doc: Fix test_summitcoin path
 - #32607 rpc: Note in fundrawtransaction doc, fee rate is for package
-- #32679 doc: update tor docs to use bitcoind binary from path
+- #32679 doc: update tor docs to use summitcoind binary from path
 - #32693 depends: fix cmake compatibility error for freetype
 - #32696 doc: make -DWITH_ZMQ=ON explicit on build-unix.md
 - #32708 rpc, doc: update listdescriptors RCP help

@@ -86,13 +86,13 @@ class ChainstateWriteCrashTest(BitcoinTestFramework):
                 return utxo_hash
             except Exception:
                 # An exception here should mean the node is about to crash.
-                # If bitcoind exits, then try again.  wait_for_node_exit()
-                # enforces that bitcoind crashed.
+                # If summitcoind exits, then try again.  wait_for_node_exit()
+                # enforces that summitcoind crashed.
                 self.wait_for_node_exit(node_index, timeout=10)
             self.crashed_on_restart += 1
 
-        # If we got here, bitcoind isn't coming back up on restart.  Could be a
-        # bug in bitcoind, or we've gotten unlucky with our dbcrash ratio --
+        # If we got here, summitcoind isn't coming back up on restart.  Could be a
+        # bug in summitcoind, or we've gotten unlucky with our dbcrash ratio --
         # perhaps we generated a test case that blew up our cache?
         # If this happens, the test should try to restart without -dbcrashratio
         # and make sure that recovery happens.
@@ -136,7 +136,7 @@ class ChainstateWriteCrashTest(BitcoinTestFramework):
                 if not self.submit_block_catch_error(i, block):
                     # TODO: more carefully check that the crash is due to -dbcrashratio
                     # (change the exit code perhaps, and check that here?)
-                    # wait_for_node_exit() enforces that bitcoind crashed.
+                    # wait_for_node_exit() enforces that summitcoind crashed.
                     self.wait_for_node_exit(i, timeout=30)
                     self.log.debug(f"Restarting node {i} after block hash {block_hash}")
                     nodei_utxo_hash = self.restart_node(i, expected_tip=block_hash)

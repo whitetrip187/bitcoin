@@ -90,7 +90,7 @@ class MempoolAcceptanceTest(BitcoinTestFramework):
         assert_equal(node.getmempoolinfo()['size'], self.mempool_size)
 
         self.log.info("Check default settings")
-        # Settings are listed in BTC/kvB
+        # Settings are listed in SMT/kvB
         assert_equal(node.getmempoolinfo()['minrelaytxfee'], Decimal(DEFAULT_MIN_RELAY_TX_FEE) / COIN)
         assert_equal(node.getmempoolinfo()['incrementalrelayfee'], Decimal(DEFAULT_INCREMENTAL_RELAY_FEE) / COIN)
 
@@ -130,7 +130,7 @@ class MempoolAcceptanceTest(BitcoinTestFramework):
 
         self.log.info('A transaction not in the mempool')
         fee = Decimal('0.000007')
-        utxo_to_spend = self.wallet.get_utxo(txid=txid_in_block)  # use 0.3 BTC UTXO
+        utxo_to_spend = self.wallet.get_utxo(txid=txid_in_block)  # use 0.3 SMT UTXO
         tx = self.wallet.create_self_transfer(utxo_to_spend=utxo_to_spend, sequence=MAX_BIP125_RBF_SEQUENCE)['tx']
         tx.vout[0].nValue = int((Decimal('0.3') - fee) * COIN)
         raw_tx_0 = tx.serialize().hex()

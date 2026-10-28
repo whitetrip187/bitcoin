@@ -62,11 +62,11 @@ def assert_fee_amount(fee, tx_size, feerate_BTC_kvB):
     assert isinstance(tx_size, int)
     target_fee = get_fee(tx_size, feerate_BTC_kvB)
     if fee < target_fee:
-        raise AssertionError("Fee of %s BTC too low! (Should be %s BTC)" % (str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s SMT too low! (Should be %s SMT)" % (str(fee), str(target_fee)))
     # allow the wallet's estimation to be at most 2 bytes off
     high_fee = get_fee(tx_size + 2, feerate_BTC_kvB)
     if fee > high_fee:
-        raise AssertionError("Fee of %s BTC too high! (Should be %s BTC)" % (str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s SMT too high! (Should be %s SMT)" % (str(fee), str(target_fee)))
 
 
 def summarise_dict_differences(thing1, thing2):
@@ -244,7 +244,7 @@ def assert_array_result(object_array, to_match, expected, should_not_find=False)
 
 
 def check_json_precision():
-    """Make sure json library being used does not lose precision converting BTC values"""
+    """Make sure json library being used does not lose precision converting SMT values"""
     n = Decimal("20000000.00000003")
     satoshis = int(json.loads(json.dumps(float(n))) * 1.0e8)
     if satoshis != 2000000000000003:
@@ -277,39 +277,39 @@ class Binaries:
         ] if use_valgrind else []
 
     def node_argv(self, **kwargs):
-        "Return argv array that should be used to invoke bitcoind"
-        return self._argv("node", self.paths.bitcoind, **kwargs)
+        "Return argv array that should be used to invoke summitcoind"
+        return self._argv("node", self.paths.summitcoind, **kwargs)
 
     def rpc_argv(self):
-        "Return argv array that should be used to invoke bitcoin-cli"
-        # Add -nonamed because "bitcoin rpc" enables -named by default, but bitcoin-cli doesn't
+        "Return argv array that should be used to invoke summitcoin-cli"
+        # Add -nonamed because "bitcoin rpc" enables -named by default, but summitcoin-cli doesn't
         return self._argv("rpc", self.paths.bitcoincli) + ["-nonamed"]
 
     def bench_argv(self):
-        "Return argv array that should be used to invoke bench_bitcoin"
+        "Return argv array that should be used to invoke bench_summitcoin"
         return self._argv("bench", self.paths.bitcoin_bench)
 
     def tx_argv(self):
-        "Return argv array that should be used to invoke bitcoin-tx"
+        "Return argv array that should be used to invoke summitcoin-tx"
         return self._argv("tx", self.paths.bitcointx)
 
     def util_argv(self):
-        "Return argv array that should be used to invoke bitcoin-util"
+        "Return argv array that should be used to invoke summitcoin-util"
         return self._argv("util", self.paths.bitcoinutil)
 
     def wallet_argv(self):
-        "Return argv array that should be used to invoke bitcoin-wallet"
+        "Return argv array that should be used to invoke summitcoin-wallet"
         return self._argv("wallet", self.paths.bitcoinwallet)
 
     def chainstate_argv(self):
-        "Return argv array that should be used to invoke bitcoin-chainstate"
+        "Return argv array that should be used to invoke summitcoin-chainstate"
         return self._argv("chainstate", self.paths.bitcoinchainstate)
 
     def _argv(self, command, bin_path, need_ipc=False):
         """Return argv array that should be used to invoke the command.
 
         It either uses the bitcoin wrapper executable (if BITCOIN_CMD is set or
-        need_ipc is True), or the direct binary path (bitcoind, etc). When
+        need_ipc is True), or the direct binary path (summitcoind, etc). When
         bin_dir is set (by tests calling binaries from previous releases) it
         always uses the direct path.
 
@@ -333,14 +333,14 @@ def get_binary_paths(config):
 
     paths = types.SimpleNamespace()
     binaries = {
-        "bitcoin": "BITCOIN_BIN",
-        "bitcoind": "BITCOIND",
-        "bench_bitcoin": "BITCOIN_BENCH",
-        "bitcoin-cli": "BITCOINCLI",
-        "bitcoin-util": "BITCOINUTIL",
-        "bitcoin-tx": "BITCOINTX",
-        "bitcoin-chainstate": "BITCOINCHAINSTATE",
-        "bitcoin-wallet": "BITCOINWALLET",
+        "summitcoin": "BITCOIN_BIN",
+        "summitcoind": "BITCOIND",
+        "bench_summitcoin": "BITCOIN_BENCH",
+        "summitcoin-cli": "BITCOINCLI",
+        "summitcoin-util": "BITCOINUTIL",
+        "summitcoin-tx": "BITCOINTX",
+        "summitcoin-chainstate": "BITCOINCHAINSTATE",
+        "summitcoin-wallet": "BITCOINWALLET",
     }
     # Set paths to bitcoin core binaries allowing overrides with environment
     # variables.
@@ -390,10 +390,10 @@ def random_bitflip(data):
 
 
 def get_fee(tx_size, feerate_btc_kvb):
-    """Calculate the fee in BTC given a feerate is BTC/kvB. Reflects CFeeRate::GetFee"""
+    """Calculate the fee in SMT given a feerate is SMT/kvB. Reflects CFeeRate::GetFee"""
     feerate_sat_kvb = int(feerate_btc_kvb * Decimal(1e8)) # Fee in sat/kvb as an int to avoid float precision errors
     target_fee_sat = ceildiv(feerate_sat_kvb * tx_size, 1000) # Round calculated fee up to nearest sat
-    return target_fee_sat / Decimal(1e8) # Return result in  BTC
+    return target_fee_sat / Decimal(1e8) # Return result in  SMT
 
 
 def satoshi_round(amount: Union[int, float, str], *, rounding: str) -> Decimal:
@@ -513,7 +513,7 @@ def initialize_datadir(dirname, n, chain, disable_autoconnect=True):
     datadir = get_datadir_path(dirname, n)
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
-    write_config(os.path.join(datadir, "bitcoin.conf"), n=n, chain=chain, disable_autoconnect=disable_autoconnect)
+    write_config(os.path.join(datadir, "summitcoin.conf"), n=n, chain=chain, disable_autoconnect=disable_autoconnect)
     os.makedirs(os.path.join(datadir, 'stderr'), exist_ok=True)
     os.makedirs(os.path.join(datadir, 'stdout'), exist_ok=True)
     return datadir
@@ -586,14 +586,14 @@ def get_temp_default_datadir(temp_dir: pathlib.Path) -> tuple[dict, pathlib.Path
     else:
         env = dict(HOME=str(temp_dir))
         if platform.system() == "Darwin":
-            datadir = temp_dir / "Library/Application Support/Bitcoin"
+            datadir = temp_dir / "Library/Application Support/Summitcoin"
         else:
-            datadir = temp_dir / ".bitcoin"
+            datadir = temp_dir / ".summitcoin"
     return env, datadir
 
 
 def append_config(datadir, options):
-    with open(os.path.join(datadir, "bitcoin.conf"), 'a') as f:
+    with open(os.path.join(datadir, "summitcoin.conf"), 'a') as f:
         for option in options:
             f.write(option + "\n")
 
@@ -601,8 +601,8 @@ def append_config(datadir, options):
 def get_auth_cookie(datadir, chain):
     user = None
     password = None
-    if os.path.isfile(os.path.join(datadir, "bitcoin.conf")):
-        with open(os.path.join(datadir, "bitcoin.conf"), 'r') as f:
+    if os.path.isfile(os.path.join(datadir, "summitcoin.conf")):
+        with open(os.path.join(datadir, "summitcoin.conf"), 'r') as f:
             for line in f:
                 if line.startswith("rpcuser="):
                     assert user is None  # Ensure that there is only one rpcuser line

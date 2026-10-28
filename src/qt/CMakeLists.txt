@@ -255,41 +255,41 @@ endif()
 
 add_subdirectory(locale)
 
-add_executable(bitcoin-qt
+add_executable(summitcoin-qt
   main.cpp
   ../init/bitcoin-qt.cpp
 )
 
-add_windows_resources(bitcoin-qt res/bitcoin-qt-res.rc)
-add_windows_application_manifest(bitcoin-qt)
+add_windows_resources(summitcoin-qt res/bitcoin-qt-res.rc)
+add_windows_application_manifest(summitcoin-qt)
 
-target_link_libraries(bitcoin-qt
+target_link_libraries(summitcoin-qt
   core_interface
   bitcoinqt
   bitcoin_node
 )
 
-import_plugins(bitcoin-qt)
-install_binary_component(bitcoin-qt HAS_MANPAGE)
+import_plugins(summitcoin-qt)
+install_binary_component(summitcoin-qt HAS_MANPAGE)
 if(WIN32)
-  set_target_properties(bitcoin-qt PROPERTIES WIN32_EXECUTABLE TRUE)
+  set_target_properties(summitcoin-qt PROPERTIES WIN32_EXECUTABLE TRUE)
 endif()
 
 if(ENABLE_IPC)
-  add_executable(bitcoin-gui
+  add_executable(summitcoin-gui
     main.cpp
     ../init/bitcoin-gui.cpp
   )
-  target_link_libraries(bitcoin-gui
+  target_link_libraries(summitcoin-gui
     core_interface
     bitcoinqt
     bitcoin_node
     bitcoin_ipc
   )
-  import_plugins(bitcoin-gui)
-  install_binary_component(bitcoin-gui INTERNAL)
+  import_plugins(summitcoin-gui)
+  install_binary_component(summitcoin-gui INTERNAL)
   if(WIN32)
-    set_target_properties(bitcoin-gui PROPERTIES WIN32_EXECUTABLE TRUE)
+    set_target_properties(summitcoin-gui PROPERTIES WIN32_EXECUTABLE TRUE)
   endif()
 endif()
 

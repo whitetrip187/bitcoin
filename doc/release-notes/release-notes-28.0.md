@@ -19,7 +19,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
 installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on macOS)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+or `summitcoind`/`summitcoin-qt` (on Linux).
 
 Upgrading directly from a version of Bitcoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
@@ -28,8 +28,8 @@ wallet versions of Bitcoin Core are generally supported.
 Running Bitcoin Core binaries on macOS requires self signing.
 ```
 cd /path/to/bitcoin-28.0/bin
-xattr -d com.apple.quarantine bitcoin-cli bitcoin-qt bitcoin-tx bitcoin-util bitcoin-wallet bitcoind test_bitcoin
-codesign -s - bitcoin-cli bitcoin-qt bitcoin-tx bitcoin-util bitcoin-wallet bitcoind test_bitcoin
+xattr -d com.apple.quarantine summitcoin-cli summitcoin-qt summitcoin-tx summitcoin-util summitcoin-wallet summitcoind test_summitcoin
+codesign -s - summitcoin-cli summitcoin-qt summitcoin-tx summitcoin-util summitcoin-wallet summitcoind test_summitcoin
 ```
 
 Compatibility
@@ -58,8 +58,8 @@ release. (#29775)
 Windows Data Directory
 ----------------------
 
-The default data directory on Windows has been moved from `C:\Users\Username\AppData\Roaming\Bitcoin`
-to `C:\Users\Username\AppData\Local\Bitcoin`. Bitcoin Core will check the existence
+The default data directory on Windows has been moved from `C:\Users\Username\AppData\Roaming\Summitcoin`
+to `C:\Users\Username\AppData\Local\Summitcoin`. Bitcoin Core will check the existence
 of the old directory first and continue to use that directory for backwards
 compatibility if it is present. (#27064)
 
@@ -260,7 +260,7 @@ Tests
 
 - The BIP94 timewarp attack mitigation is now active on the `regtest` network. (#30681)
 
-- A new `-testdatadir` option has been added to `test_bitcoin` to allow specifying the
+- A new `-testdatadir` option has been added to `test_summitcoin` to allow specifying the
   location of unit test data directories. (#26564)
 
 Blockstorage

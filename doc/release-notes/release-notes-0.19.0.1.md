@@ -19,7 +19,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+or `summitcoind`/`summitcoin-qt` (on Linux).
 
 Upgrading directly from a version of Bitcoin Core that has reached its EOL is
 possible, but might take some time if the datadir needs to be migrated.  Old
@@ -90,7 +90,7 @@ Updated settings
   provide peers connecting using the indicated interfaces or IP
   addresses.  If no permissions are specified with an address or CIDR
   network, the implicit default permissions are the same as previous
-  releases.  See the `bitcoind -help` output for these two options for
+  releases.  See the `summitcoind -help` output for these two options for
   details about the available permissions. (#16248)
 
 - Users setting custom `dbcache` values can increase their setting slightly
@@ -250,7 +250,7 @@ P2P changes
 Miscellaneous CLI Changes
 -------------------------
 
-- The `testnet` field in `bitcoin-cli -getinfo` has been renamed to
+- The `testnet` field in `summitcoin-cli -getinfo` has been renamed to
   `chain` and now returns the current network name as defined in BIP70
   (main, test, regtest). (#15566)
 
@@ -443,7 +443,7 @@ Build system changes
 - #15508 Refactor analyzepsbt for use outside RPC code (gwillen)
 - #15747 Remove plethora of Get*Balance (MarcoFalke)
 - #15728 Refactor relay transactions (jnewbery)
-- #15639 bitcoin-wallet tool: Drop libbitcoin_server.a dependency (ryanofsky)
+- #15639 summitcoin-wallet tool: Drop libbitcoin_server.a dependency (ryanofsky)
 - #15853 Remove unused import checkpoints.h (MarcoFalke)
 - #15780 add cachable amounts for caching credit/debit values (kallewoof)
 - #15778 Move maxtxfee from node to wallet (jnewbery)
@@ -569,7 +569,7 @@ Build system changes
 - #16291 Stop translating PACKAGE_NAME (MarcoFalke)
 - #16380 Remove unused bits from the service flags enum (MarcoFalke)
 - #16379 Fix autostart filenames on Linux for testnet/regtest (hebasto)
-- #16366 init: Use InitError for all errors in bitcoind/qt (MarcoFalke)
+- #16366 init: Use InitError for all errors in summitcoind/qt (MarcoFalke)
 - #16436 Do not create payment server if -disablewallet option provided (hebasto)
 - #16514 Remove unused RPCConsole::tabFocus (promag)
 - #16497 Generate bech32 addresses by default (take 2, fixup) (MarcoFalke)
@@ -630,7 +630,7 @@ Build system changes
 - #16235 Cleaned up and consolidated msbuild files (no code changes) (sipsorcery)
 - #16246 MSVC: Fix error in debug mode (Fix #16245) (NicolasDorier)
 - #16183 xtrans: Configure flags cleanup (dongcarl)
-- #16258 [MSVC]: Create the config.ini as part of bitcoind build (NicolasDorier)
+- #16258 [MSVC]: Create the config.ini as part of summitcoind build (NicolasDorier)
 - #16271 remove -Wall from rapidcheck build flags (fanquake)
 - #16309 [MSVC] allow user level project customization (NicolasDorier)
 - #16308 [MSVC] Copy build output to src/ automatically after build (NicolasDorier)
@@ -654,7 +654,7 @@ Build system changes
 - #16654 build: update RapidCheck Makefile (jonatack)
 - #16370 cleanup package configure flags (fanquake)
 - #16746 msbuild: Ignore linker warning (sipsorcery)
-- #16750 msbuild: adds bench_bitcoin to auto generated project files (sipsorcery)
+- #16750 msbuild: adds bench_summitcoin to auto generated project files (sipsorcery)
 - #16810 guix: Remove ssp spec file hack (dongcarl)
 - #16477 skip deploying plugins we dont use in macdeployqtplus (fanquake)
 - #16413 Bump QT to LTS release 5.9.8 (THETCR)
@@ -691,7 +691,7 @@ Build system changes
 - #15773 Add BitcoinTestFramework::sync_* methods (MarcoFalke)
 - #15797 travis: Bump second timeout to 33 minutes, add rationale (MarcoFalke)
 - #15788 Unify testing setups for fuzz, bench, and unit tests (MarcoFalke)
-- #15352 Reduce noise level in test_bitcoin output (practicalswift)
+- #15352 Reduce noise level in test_summitcoin output (practicalswift)
 - #15779 Add wallet_balance benchmark (MarcoFalke)
 - #15843 fix outdated include in blockfilter_index_tests (jamesob)
 - #15866 Add missing syncwithvalidationinterfacequeue to wallet_import_rescan (MarcoFalke)
@@ -751,7 +751,7 @@ Build system changes
 - #16505 Changes verbosity of msbuild from quiet to normal in the appveyor script (sipsorcery)
 - #16293 Make test cases separate functions (MarcoFalke)
 - #16470 Fail early on disconnect in mininode.wait_for_* (MarcoFalke)
-- #16277 Suppress output in test_bitcoin for expected errors (gertjaap)
+- #16277 Suppress output in test_summitcoin for expected errors (gertjaap)
 - #16493 Fix test failures (MarcoFalke)
 - #16538 Add missing sync_blocks to feature_pruning (MarcoFalke)
 - #16509 Adapt test framework for chains other than "regtest" (MarcoFalke)
@@ -851,7 +851,7 @@ Build system changes
 - #16556 Fix systemd service file configuration directory setup (setpill)
 - #15615 Add log output during initial header sync (jonasschnelli)
 - #16774 Avoid unnecessary "Synchronizing blockheaders" log messages (jonasschnelli)
-- #16489 log: harmonize bitcoind logging (jonatack)
+- #16489 log: harmonize summitcoind logging (jonatack)
 - #16577 util: Cbufferedfile fixes and unit test (LarryRuane)
 - #16984 util: Make thread names shorter (hebasto)
 - #17038 Don't rename main thread at process level (laanwj)
@@ -863,7 +863,7 @@ Build system changes
 
 ### Documentation
 - #15514 Update Transifex links (fanquake)
-- #15513 add "sections" info to example bitcoin.conf (fanquake)
+- #15513 add "sections" info to example summitcoin.conf (fanquake)
 - #15530 Move wallet lock annotations to header (MarcoFalke)
 - #15562 remove duplicate clone step in build-windows.md (fanquake)
 - #15565 remove release note fragments (fanquake)
@@ -915,7 +915,7 @@ Build system changes
 - #16484 update labels in CONTRIBUTING.md (MarcoFalke)
 - #16483 update Python command in msvc readme (sipsorcery)
 - #16504 Add release note for the deprecated totalFee option of bumpfee (promag)
-- #16448 add note on precedence of options in bitcoin.conf (fanquake)
+- #16448 add note on precedence of options in summitcoin.conf (fanquake)
 - #16536 Update and extend benchmarking.md (ariard)
 - #16530 Fix grammar and punctuation in developer notes (Tech1k)
 - #16574 Add historical release notes for 0.18.1 (laanwj)
@@ -933,15 +933,15 @@ Build system changes
 - #16629 Add documentation for the new whitelist permissions (NicolasDorier)
 - #16723 Update labels in CONTRIBUTING.md (hebasto)
 - #16461 Tidy up shadowing section (promag)
-- #16621 add default bitcoin.conf locations (GChuf)
+- #16621 add default summitcoin.conf locations (GChuf)
 - #16752 Delete stale URL in test README (michaelfolkson)
 - #14862 Declare BLOCK_VALID_HEADER reserved (MarcoFalke)
 - #16806 Add issue templates for bug and feature request (MarcoFalke)
 - #16857 Elaborate need to re-login on Debian-based after usermod for Tor group (clashicly)
-- #16863 Add a missing closing parenthesis in the bitcoin-wallet's help (darosior)
+- #16863 Add a missing closing parenthesis in the summitcoin-wallet's help (darosior)
 - #16757 CChainState return values (MarcoFalke)
 - #16847 add comments clarifying how local services are advertised (jamesob)
-- #16812 Fix whitespace errs in .md files, bitcoin.conf, and Info.plist.in (ch4ot1c)
+- #16812 Fix whitespace errs in .md files, summitcoin.conf, and Info.plist.in (ch4ot1c)
 - #16885 Update tx-size-small comment with relevant CVE disclosure (instagibbs)
 - #16900 Fix doxygen comment for SignTransaction in rpc/rawtransaction_util (MarcoFalke)
 - #16914 Update homebrew instruction for doxygen (Sjors)

@@ -50,15 +50,15 @@ _bitcoin() {
 
     case "$subcmd" in
         gui|node)
-            _bitcoin_wrap bitcoind "$offset"
+            _bitcoin_wrap summitcoind "$offset"
             return 0
             ;;
         rpc)
-            _bitcoin_wrap bitcoin-cli "$offset"
+            _bitcoin_wrap summitcoin-cli "$offset"
             return 0
             ;;
         tx)
-            _bitcoin_wrap bitcoin-tx "$offset"
+            _bitcoin_wrap summitcoin-tx "$offset"
             return 0
             ;;
     esac

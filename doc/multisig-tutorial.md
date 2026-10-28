@@ -9,7 +9,7 @@ This tutorial uses [jq](https://github.com/stedolan/jq) JSON processor to proces
 Before starting this tutorial, start the bitcoin node on the signet network.
 
 ```bash
-./build/bin/bitcoind -signet -daemon
+./build/bin/summitcoind -signet -daemon
 ```
 
 This tutorial also uses the default WPKH derivation path to get the xpubs and does not conform to [BIP 45](https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki) or [BIP 87](https://github.com/bitcoin/bips/blob/master/bip-0087.mediawiki).
@@ -129,7 +129,7 @@ Coins received by the wallet must have at least 1 confirmation before they can b
 ```bash
 receiving_address=$(./build/bin/bitcoin rpc -signet -rpcwallet="multisig_wallet_01" getnewaddress)
 
-./contrib/signet/getcoins.py -c ./build/bin/bitcoin-cli -a $receiving_address
+./contrib/signet/getcoins.py -c ./build/bin/summitcoin-cli -a $receiving_address
 ```
 
 To copy the receiving address onto the clipboard, use the following command. This can be useful when getting coins via the signet faucet mentioned above.

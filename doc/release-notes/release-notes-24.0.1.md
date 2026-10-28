@@ -25,7 +25,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
 installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on macOS)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+or `summitcoind`/`summitcoin-qt` (on Linux).
 
 Upgrading directly from a version of Bitcoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
@@ -247,15 +247,15 @@ GUI changes
 - Configuration changes made in the bitcoin GUI (such as the pruning setting,
 proxy settings, UPNP preferences) are now saved to `<datadir>/settings.json`
 file rather than to the Qt settings backend (windows registry or unix desktop
-config files), so these settings will now apply to bitcoind, instead of being
+config files), so these settings will now apply to summitcoind, instead of being
 ignored. (#15936, gui#602)
 
-- Also, the interaction between GUI settings and `bitcoin.conf` settings is
-simplified. Settings from `bitcoin.conf` are now displayed normally in the GUI
+- Also, the interaction between GUI settings and `summitcoin.conf` settings is
+simplified. Settings from `summitcoin.conf` are now displayed normally in the GUI
 settings dialog, instead of in a separate warning message ("Options set in this
 dialog are overridden by the configuration file: -setting=value"). And these
 settings can now be edited because `settings.json` values take precedence over
-`bitcoin.conf` values. (#15936)
+`summitcoin.conf` values. (#15936)
 
 Low-level changes
 =================

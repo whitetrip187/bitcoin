@@ -19,7 +19,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has
 completely shut down (which might take a few minutes for older
 versions), then run the installer (on Windows) or just copy over
-`/Applications/Bitcoin-Qt` (on Mac) or `bitcoind`/`bitcoin-qt` (on
+`/Applications/Bitcoin-Qt` (on Mac) or `summitcoind`/`summitcoin-qt` (on
 Linux).
 
 The first time you run version 0.15.0 or newer, your chainstate database
@@ -53,10 +53,10 @@ platform.
 
 If you are using the `systemd` unit configuration file located at
 `contrib/init/bitcoind.service`, it has been changed to use
-`/var/lib/bitcoind` as the data directory instead of
-`~bitcoin/.bitcoin`. When switching over to the new configuration file,
-please make sure that the filesystem on which `/var/lib/bitcoind` will
-exist has enough space (check using `df -h /var/lib/bitcoind`), and
+`/var/lib/summitcoind` as the data directory instead of
+`~bitcoin/.summitcoin`. When switching over to the new configuration file,
+please make sure that the filesystem on which `/var/lib/summitcoind` will
+exist has enough space (check using `df -h /var/lib/summitcoind`), and
 optionally copy over your existing data directory. See the [systemd init
 file section](#systemd-init-file) for more details.
 
@@ -127,8 +127,8 @@ systemd init file
 -----------------
 
 The systemd init file (`contrib/init/bitcoind.service`) has been changed
-to use `/var/lib/bitcoind` as the data directory instead of
-`~bitcoin/.bitcoin`. This change makes Bitcoin Core more consistent with
+to use `/var/lib/summitcoind` as the data directory instead of
+`~bitcoin/.summitcoin`. This change makes Bitcoin Core more consistent with
 other services, and makes the systemd init config more consistent with
 existing Upstart and OpenRC configs.
 
@@ -138,10 +138,10 @@ See [`systemd.exec(5)`](https://www.freedesktop.org/software/systemd/man/systemd
 for more details.
 
 When using the provided init files under `contrib/init`, overriding the
-`datadir` option in `/etc/bitcoin/bitcoin.conf` will have no effect.
+`datadir` option in `/etc/bitcoin/summitcoin.conf` will have no effect.
 This is because the command line arguments specified in the init files
 take precedence over the options specified in
-`/etc/bitcoin/bitcoin.conf`.
+`/etc/bitcoin/summitcoin.conf`.
 
 
 Documentation
@@ -159,7 +159,7 @@ Documentation
   about how to secure this interface.
 
 - A new [document](https://github.com/bitcoin/bitcoin/blob/master/doc/bitcoin-conf.md)
-  about the `bitcoin.conf` file describes how to use it to configure
+  about the `summitcoin.conf` file describes how to use it to configure
   Bitcoin Core.
 
 - A new document introduces Bitcoin Core's BIP174 [Partially-Signed
@@ -359,7 +359,7 @@ Deprecated or removed RPCs
   require or use the wallet component. Calling `generatetoaddress` with
   an address returned by the `getnewaddress` RPC gives the same
   functionality as the old `generate` RPC.  To continue using `generate`
-  in this version, restart bitcoind with the `-deprecatedrpc=generate`
+  in this version, restart summitcoind with the `-deprecatedrpc=generate`
   configuration option.
 
 - Be reminded that parts of the `validateaddress` command have been
@@ -406,7 +406,7 @@ Graphical User Interface (GUI)
 Tools
 -----
 
-- A new `bitcoin-wallet` tool is now distributed alongside Bitcoin
+- A new `summitcoin-wallet` tool is now distributed alongside Bitcoin
   Core's other executables.  Without needing to use any RPCs, this tool
   can currently create a new wallet file or display some basic
   information about an existing wallet, such as whether the wallet is
@@ -623,7 +623,7 @@ Changes for particular platforms
 - #14711 Remove uses of chainActive and mapBlockIndex in wallet code (ryanofsky)
 - #15279 Clarify rescanblockchain doc (MarcoFalke)
 - #15292 Remove `boost::optional`-related false positive -Wmaybe-uninitialized warnings on GCC compiler (hebasto)
-- #13926 [Tools] bitcoin-wallet - a tool for creating and managing wallets offline (jnewbery)
+- #13926 [Tools] summitcoin-wallet - a tool for creating and managing wallets offline (jnewbery)
 - #11911 Free BerkeleyEnvironment instances when not in use (ryanofsky)
 - #15235 Do not import private keys to wallets with private keys disabled (achow101)
 - #15263 Descriptor expansions only need pubkey entries for PKH/WPKH (sipa)
@@ -709,7 +709,7 @@ Changes for particular platforms
 - #13248 Make proxy icon from statusbar clickable (mess110)
 - #12818 TransactionView: highlight replacement tx after fee bump (Sjors)
 - #13529 Use new Qt5 connect syntax (promag)
-- #14162 Also log and print messages or questions like bitcoind (MarcoFalke)
+- #14162 Also log and print messages or questions like summitcoind (MarcoFalke)
 - #14385 Avoid system harfbuzz and bz2 (theuni)
 - #14450 Fix QCompleter popup regression (hebasto)
 - #14177 Set C locale for amountWidget (hebasto)
@@ -717,7 +717,7 @@ Changes for particular platforms
 - #14554 Remove unused `adjustedTime` parameter (hebasto)
 - #14228 Enable system tray icon by default if available (hebasto)
 - #14608 Remove the "Pay only required fee…" checkbox (hebasto)
-- #14521 qt, docs: Fix `bitcoin-qt -version` output formatting (hebasto)
+- #14521 qt, docs: Fix `summitcoin-qt -version` output formatting (hebasto)
 - #13966 When private key is disabled, only show watch-only balance (ken2812221)
 - #14828 Remove hidden columns in coin control dialog (promag)
 - #14783 Fix `boost::signals2::no_slots_error` in early calls to InitWarning (promag)
@@ -786,11 +786,11 @@ Changes for particular platforms
 - #14849 Qt 5.9.7 (fanquake)
 - #15020 Add names to Travis jobs (gkrizek)
 - #15047 Allow to configure --with-sanitizers=fuzzer (MarcoFalke)
-- #15154 Configure: bitcoin-tx doesn't need libevent, so don't pull it in (luke-jr)
+- #15154 Configure: summitcoin-tx doesn't need libevent, so don't pull it in (luke-jr)
 - #15175 Drop macports support (Empact)
 - #15308 Restore compatibility with older boost (Empact)
 - #15407 msvc: Fix silent merge conflict between #13926 and #14372 part II (ken2812221)
-- #15388 Makefile.am: add rule for src/bitcoin-wallet (Sjors)
+- #15388 Makefile.am: add rule for src/summitcoin-wallet (Sjors)
 - #15393 Bump minimum Qt version to 5.5.1 (Sjors)
 - #15285 Prefer Python 3.4 even if newer versions are present on the system (Sjors)
 - #15398 msvc: Add rapidcheck property tests (ken2812221)
@@ -837,7 +837,7 @@ Changes for particular platforms
 - #14275 Write the notification message to different files to avoid race condition in `feature_notifications.py` (ken2812221)
 - #14306 appveyor: Move AppVeyor YAML to dot-file-style YAML (MitchellCash)
 - #14305 Enforce critical class instance attributes in functional tests, fix segwit test specificity (JustinTArthur)
-- #12246 Bugfix: Only run bitcoin-tx tests when bitcoin-tx is enabled (luke-jr)
+- #12246 Bugfix: Only run summitcoin-tx tests when summitcoin-tx is enabled (luke-jr)
 - #14316 Exclude all tests with difference parameters in `--exclude` list (ken2812221)
 - #14381 Add missing call to `skip_if_no_cli()` (practicalswift)
 - #14389 travis: Set codespell version to avoid breakage (MarcoFalke)
@@ -859,7 +859,7 @@ Changes for particular platforms
 - #14631 Move deterministic address import to `setup_nodes` (jnewbery)
 - #14630 test: Remove travis specific code (MarcoFalke)
 - #14528 travis: Compile once on xenial (MarcoFalke)
-- #14092 Dry run `bench_bitcoin` as part `make check` to allow for quick identification of assertion/sanitizer failures in benchmarking code (practicalswift)
+- #14092 Dry run `bench_summitcoin` as part `make check` to allow for quick identification of assertion/sanitizer failures in benchmarking code (practicalswift)
 - #14664 `example_test.py`: fixup coinbase height argument, derive number clearly (instagibbs)
 - #14522 Add invalid P2P message tests (jamesob)
 - #14619 Fix value display name in `test_runner` help text (merland)
@@ -903,7 +903,7 @@ Changes for particular platforms
 - #14969 Fix `cuckoocache_tests` TSAN failure introduced in 14935 (practicalswift)
 - #14964 Fix race in `mempool_accept` (MarcoFalke)
 - #14829 travis: Enable functional tests in the threadsanitizer (tsan) build job (practicalswift)
-- #14985 Remove `thread_local` from `test_bitcoin` (MarcoFalke)
+- #14985 Remove `thread_local` from `test_summitcoin` (MarcoFalke)
 - #15005 Bump timeout to run tests in travis thread sanitizer (MarcoFalke)
 - #15013 Avoid race in `p2p_timeouts` (MarcoFalke)
 - #14960 lint/format-strings: Correctly exclude escaped percent symbols (luke-jr)
@@ -980,7 +980,7 @@ Changes for particular platforms
 - #14097 validation: Log FormatStateMessage on ConnectBlock error in ConnectTip (MarcoFalke)
 - #13724 contrib: Support ARM and RISC-V symbol check (ken2812221)
 - #13159 Don't close old debug log file handle prematurely when trying to re-open (on SIGHUP) (practicalswift)
-- #14186 bitcoin-cli: don't translate command line options (HashUnlimited)
+- #14186 summitcoin-cli: don't translate command line options (HashUnlimited)
 - #14057 logging: Only log `using config file path_to_bitcoin.conf` message on startup if conf file exists (leishman)
 - #14164 Update univalue subtree (MarcoFalke)
 - #14272 init: Remove deprecated args from hidden args (MarcoFalke)
@@ -1073,7 +1073,7 @@ Changes for particular platforms
 - #15272 Correct logging return type and RPC example (fanquake)
 - #15244 Gdb attaching to process during tests has non-sudo solution (instagibbs)
 - #15332 Small updates to `getrawtransaction` description (amitiuttarwar)
-- #15354 Add missing `bitcoin-wallet` tool manpages (MarcoFalke)
+- #15354 Add missing `summitcoin-wallet` tool manpages (MarcoFalke)
 - #15343 netaddress: Make IPv4 loopback comment more descriptive (dongcarl)
 - #15353 Minor textual improvements in `translation_strings_policy.md` (merland)
 - #15426 importmulti: add missing description of keypool option (harding)

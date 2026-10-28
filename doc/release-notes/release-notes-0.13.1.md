@@ -281,7 +281,7 @@ git merge commit are mentioned.
 
 ### Build system
 - #8293 `fa5b249` Allow building libbitcoinconsensus without any univalue (luke-jr)
-- #8492 `8b0bdd3` Allow building bench_bitcoin by itself (luke-jr)
+- #8492 `8b0bdd3` Allow building bench_summitcoin by itself (luke-jr)
 - #8563 `147003c` Add configure check for -latomic (ajtowns)
 - #8626 `ea51b0f` Berkeley DB v6 compatibility fix (netsafe)
 - #8520 `75f2065` Remove check for `openssl/ec.h` (laanwj)
@@ -320,7 +320,7 @@ git merge commit are mentioned.
 - #8418 `ff893aa` Add tests for compact blocks (sdaftuar)
 - #8803 `375437c` Ping regularly in p2p-segwit.py to keep connection alive (jl2012)
 - #8827 `9bbe66e` Split up slow RPC calls to avoid pruning test timeouts (sdaftuar)
-- #8829 `2a8bca4` Add bitcoin-tx JSON tests (jnewbery)
+- #8829 `2a8bca4` Add summitcoin-tx JSON tests (jnewbery)
 - #8834 `1dd1783` blockstore: Switch to dumb dbm (MarcoFalke)
 - #8835 `d87227d` nulldummy.py: Don't run unused code (MarcoFalke)
 - #8836 `eb18cc1` bitcoin-util-test.py should fail if the output file is empty (jnewbery)
@@ -352,7 +352,7 @@ git merge commit are mentioned.
 - #8742 `d31ac72` Specify Protobuf version 2 in paymentrequest.proto (fanquake)
 - #8414,#8558,#8676,#8700,#8701,#8702 Add missing copyright headers (isle2983, kazcw)
 - #8899 `4ed2627` Fix wake from sleep issue with Boost 1.59.0 (fanquake)
-- #8817 `bcf3806` update bitcoin-tx to output witness data (jnewbery)
+- #8817 `bcf3806` update summitcoin-tx to output witness data (jnewbery)
 - #8513 `4e5fc31` Fix a type error that would not compile on OSX. (JeremyRubin)
 - #8392 `30eac2d` Fix several node initialization issues (sipa)
 - #8548 `305d8ac` Use `__func__` to get function name for output printing (MarcoFalke)

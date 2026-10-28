@@ -7,4 +7,4 @@ DUMP=$(mktemp -d); mkdir -p "$OUT"
 for N in $(seq 1 "$RUNS"); do TEST_DUMP_DIR="$DUMP" "$BUILD/test/functional/feature_taproot.py" --dumptests; done
 ( echo '['; find "$DUMP" -type f -exec cat {} + | head -c -2; echo; echo ']' ) > "$OUT/script_assets_test.json"
 rm -rf "$DUMP"
-DIR_UNIT_TEST_DATA="$OUT" "$BUILD/bin/test_bitcoin" --run_test=script_assets_tests
+DIR_UNIT_TEST_DATA="$OUT" "$BUILD/bin/test_summitcoin" --run_test=script_assets_tests

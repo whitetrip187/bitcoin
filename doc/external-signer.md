@@ -13,10 +13,10 @@ When using a hardware wallet, consult the manufacturer website for (alternative)
 Start Bitcoin Core:
 
 ```sh
-bitcoind -signer=../HWI/hwi.py
+summitcoind -signer=../HWI/hwi.py
 ```
 
-`bitcoin node` can also be substituted for `bitcoind`.
+`bitcoin node` can also be substituted for `summitcoind`.
 
 ### Device setup
 
@@ -27,7 +27,7 @@ Follow the hardware manufacturers instructions for the initial device setup, as 
 Get a list of signing devices / services:
 
 ```sh
-bitcoin-cli enumeratesigners
+summitcoin-cli enumeratesigners
 ```
 
 ```
@@ -49,15 +49,15 @@ Create a wallet, this automatically imports the public keys:
 bitcoin rpc createwallet wallet_name="hww2" disable_private_keys=true descriptors=true external_signer=true
 ```
 
-Creation of the external wallet can be confirmed with `getwalletinfo`, which will report `"external_signer": true`. These commands can also be executed using `bitcoin-qt` Debug Console instead of using `bitcoin rpc` or `bitcoin-cli`.
+Creation of the external wallet can be confirmed with `getwalletinfo`, which will report `"external_signer": true`. These commands can also be executed using `summitcoin-qt` Debug Console instead of using `bitcoin rpc` or `summitcoin-cli`.
 
 ### Verify an address
 
 Display an address on the device:
 
 ```sh
-bitcoin-cli -rpcwallet=<walletname> getnewaddress
-bitcoin-cli -rpcwallet=<walletname> walletdisplayaddress <address>
+summitcoin-cli -rpcwallet=<walletname> getnewaddress
+summitcoin-cli -rpcwallet=<walletname> walletdisplayaddress <address>
 ```
 
 Replace `<address>` with the result of `getnewaddress`.
@@ -67,7 +67,7 @@ Replace `<address>` with the result of `getnewaddress`.
 Under the hood this uses a [PSBT (Partially Signed Bitcoin Transaction)](psbt.md).
 
 ```sh
-bitcoin-cli -rpcwallet=<walletname> sendtoaddress <address> <amount>
+summitcoin-cli -rpcwallet=<walletname> sendtoaddress <address> <amount>
 ```
 
 This constructs a PSBT and prompts your external signer to sign (will fail if it's not connected). If successful, Bitcoin Core finalizes and broadcasts the transaction.

@@ -224,13 +224,13 @@ class AbandonConflictTest(BitcoinTestFramework):
         assert_equal(double_spend_txid, double_spend['txid'])
         assert_equal(double_spend["walletconflicts"], [txAB1])
 
-        # Verify that B and C's 10 BTC outputs are available for spending again because AB1 is now conflicted
+        # Verify that B and C's 10 SMT outputs are available for spending again because AB1 is now conflicted
         assert_equal(alice.gettransaction(txAB1)["confirmations"], -1)
         newbalance = alice.getbalance()
         assert_equal(newbalance, balance + Decimal("20"))
         balance = newbalance
 
-        # Invalidate the block with the double spend. B & C's 10 BTC outputs should no longer be available
+        # Invalidate the block with the double spend. B & C's 10 SMT outputs should no longer be available
         blk = self.nodes[0].getbestblockhash()
         # mine 10 blocks so that when the blk is invalidated, the transactions are not
         # returned to the mempool
