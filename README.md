@@ -1,24 +1,29 @@
-Bitcoin Core integration/staging tree
-=====================================
+Summitcoin Core
+===============
 
-https://bitcoincore.org
+Summitcoin (ticker **SMT**) is a fork of Bitcoin Core with its own chain
+identity (genesis blocks, network magic, ports, address prefixes).
 
-For an immediately usable, binary version of the Bitcoin Core software, see
-https://bitcoincore.org/en/download/.
+What is Summitcoin Core?
+------------------------
 
-What is Bitcoin Core?
----------------------
+Summitcoin Core connects to the Summitcoin peer-to-peer network to download and
+fully validate blocks and transactions. It also includes a wallet and graphical
+user interface, which can be optionally built.
 
-Bitcoin Core connects to the Bitcoin peer-to-peer network to download and fully
-validate blocks and transactions. It also includes a wallet and graphical user
-interface, which can be optionally built.
+Binaries: `summitcoind`, `summitcoin-cli`, `summitcoin-tx`, `summitcoin-wallet`,
+`summitcoin-util`, `summitcoin-qt` and the `summitcoin` multiplexer.
+The default data directory is `~/.summitcoin` (Linux),
+`~/Library/Application Support/Summitcoin` (macOS) or `%LOCALAPPDATA%\Summitcoin`
+(Windows), and the configuration file is `summitcoin.conf`.
 
-Further information about Bitcoin Core is available in the [doc folder](/doc).
+Further information is available in the [doc folder](/doc). Most deep
+documentation is inherited from Bitcoin Core and still refers to Bitcoin.
 
 License
 -------
 
-Bitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Summitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/license/MIT.
 
 Development Process
